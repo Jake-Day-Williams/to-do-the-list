@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @list.title %>
@@ -10,7 +8,7 @@
   <%= @list.about %>
 </p>
 
-<div id="list_items_wrap">
+<div>
   <%= render @list.list_items %>
     <div id="form">
     <%= render "list_items/form" %>
