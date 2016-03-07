@@ -1,2 +1,23 @@
-<p><%= list_item.content %></p>
-<%= link_to "Remove", list_list_item_path(@list, list_item.id), method: :delete, data: { confirm:"Really Delete?" } %>
+<div class="row clearfix">
+  <% if list_item.completed? %>
+    <div class="complete">
+      <%= link_to "Mark as Done.", complete_list_list_item_path(@list, list_item.id), method: :patch %>
+    </div>
+    <div class="list_item">
+      <p style="opacity: 0.5;"><strike><%= list_item.content %></strike></p>
+    </div>
+    <div class="trash">
+      <%= link_to "Remove", list_list_item_path(@list, list_item.id), method: :delete, data: { confirm:"Really Delete?" } %>
+    </div>
+    <% else %>
+      <div class="complete">
+      <%= link_to "Mark as Done.", complete_list_list_item_path(@list, list_item.id), method: :patch %>
+    </div>
+    <div class="list_item">
+      <p><%= list_item.content %></p>
+    </div>
+    <div class="trash">
+      <%= link_to "Remove", list_list_item_path(@list, list_item.id), method: :delete, data: { confirm:"Really Delete?" } %>
+    </div>
+    <% end %>
+</div>
